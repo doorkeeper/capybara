@@ -10,6 +10,7 @@ module Capybara
       def initialize(app, config)
         super(config.merge(:Port => 443, :DoNotListen => true))
         @rack_handler = Rack::Handler::WEBrick.new(self, app)
+        @status = :Running
       end
 
       def service(req, res)
